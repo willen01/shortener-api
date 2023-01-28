@@ -8,11 +8,14 @@ export class Shortener {
   @Prop({ required: true })
   url: string;
 
-  @Prop({ required: true })
+  @Prop()
   hash: string;
 
-  @Prop({ required: true, default: Date.now })
+  @Prop({ default: Date.now })
   createdAt: Date;
+
+  @Prop({ default: 0 })
+  clicks: number;
 }
 
 export const ShortenerSchema = SchemaFactory.createForClass(Shortener);
