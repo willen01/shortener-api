@@ -14,8 +14,10 @@ export class ShortenerController {
   }
 
   @Get('/links')
-  async listUrls() {
-    return await this.shortenerService.listUrls();
+  async listUrls(@Res() res) {
+    const allUrls = await this.shortenerService.listUrls();
+
+    return res.json(allUrls);
   }
 
   @Get('/:hash')
